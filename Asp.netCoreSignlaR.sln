@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.netCoreSignlaR", "Asp.netCoreSignlaR.csproj", "{BE9210CF-F474-4941-B5EE-4741D74AE00B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE9210CF-F474-4941-B5EE-4741D74AE00B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE9210CF-F474-4941-B5EE-4741D74AE00B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE9210CF-F474-4941-B5EE-4741D74AE00B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE9210CF-F474-4941-B5EE-4741D74AE00B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AF1B34D-0EDC-4513-8AFB-7981F2CD80A0}
+	EndGlobalSection
+EndGlobal
