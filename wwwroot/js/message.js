@@ -64,6 +64,11 @@ document
             connection.invoke(method, message).catch(function (err) {
                 return console.error(err.toString());
             });
+        } else if (groupValue === 'PrivateGroup') {
+            /** Send Message to Private Group User */
+            connection.invoke('SendMessageToGroup', 'PrivateGroup', message).catch(function (err) {
+                return console.error(err.toString());
+            });
         } else {
             /** Send Message to connected UserId */
             connection.invoke('SendMessageToUser', groupValue, message).catch(function (err) {
@@ -74,3 +79,12 @@ document
         document.getElementById('message').value = '';
         event.preventDefault();
     });
+
+/** Join Private Group */
+document.getElementById('joinGroup').addEventListener('click', function (event) {
+    connection.invoke('JoinGroup', 'PrivateGroup').catch(function (err) {
+        return console.error(err.toString());
+    });
+
+    event.preventDefault();
+})

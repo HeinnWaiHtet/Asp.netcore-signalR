@@ -35,6 +35,27 @@ namespace Asp.netCoreSignlaR.Hubs
             return Clients.Client(connectionId).SendAsync("ReceiveMessage", message);
         }
 
+        /// <summary>
+        /// Join Group By Connection Id
+        /// </summary>
+        /// <param name="group"></param>
+        /// <returns></returns>
+        public Task JoinGroup(string group)
+        {
+            return Groups.AddToGroupAsync(Context.ConnectionId, group);
+        }
+
+        /// <summary>
+        /// Send Message  by group
+        /// </summary>
+        /// <param name="group"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Task SendMessageToGroup(string group, string message)
+        {
+            return Clients.Group(group).SendAsync("ReceiveMessage", message);
+        }
+
         public override async Task OnConnectedAsync()
         {
             /** add connection UserId */
