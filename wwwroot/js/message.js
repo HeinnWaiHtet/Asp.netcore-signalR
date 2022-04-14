@@ -27,10 +27,20 @@ connection.start().catch(function (err) {
 document
   .getElementById("sendButton")
   .addEventListener("click", function (event) {
-    let message = document.getElementById("message").value;
+      let message = document.getElementById("message").value;
+
+      /** Get Group Value */
+      let groupElement = document.getElementById('group');
+      let groupValue = groupElement.options[groupElement.selectedIndex].value;
+
+      /** Change Method based on select type */
+      let method = 'SendMessageToAll';
+      if (groupValue === 'Myself') {
+          method = 'SendMessageToCaller';
+      }
 
     /** invoke message hub connection */
-    connection.invoke("SendMessageToAll", message).catch(function (err) {
+      connection.invoke(method, message).catch(function (err) {
       return console.error(err.toString());
     });
 
