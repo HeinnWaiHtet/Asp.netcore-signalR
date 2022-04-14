@@ -24,14 +24,29 @@ namespace Asp.netCoreSignlaR.Hubs
             return Clients.Caller.SendAsync("ReceiveMessage", message);
         }
 
-        public override Task OnConnectedAsync()
+        /// <summary>
+        /// Send Message To Specific UserId
+        /// </summary>
+        /// <param name="connectionId"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Task SendMessageToUser(string connectionId, string message)
         {
-            return base.OnConnectedAsync();
+            return Clients.Client(connectionId).SendAsync("ReceiveMessage", message);
         }
 
-        public override Task OnDisconnectedAsync(Exception? exception)
+        public override async Task OnConnectedAsync()
         {
-            return base.OnDisconnectedAsync(exception);
+            /** add connection UserId */
+            await Clients.All.SendAsync("UserConnected", Context.ConnectionId);
+            await base.OnConnectedAsync();
+        }
+
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            /** clear connection UserId */
+            await Clients.All.SendAsync("UserDisconnected", Context.ConnectionId);
+            await base.OnDisconnectedAsync(exception);
         }
     }
 }
