@@ -1,0 +1,13 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<html>
+    <head>
+        <title>Server side Message Event</title>
+    </head>
+    <body>
+        <form asp-controller="Announcement" asp-action="Post" method="post">
+            <textarea name="message"></textarea>
+            <input type="submit" value="Send" />
+        </form>
+    </body>
+</html>

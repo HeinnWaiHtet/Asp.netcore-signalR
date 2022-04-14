@@ -4,7 +4,10 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
 /** Add Services */
-services.AddMvc();
+services.AddMvc(option =>
+{
+    option.EnableEndpointRouting = false;
+});
 services.AddRazorPages();
 services.AddSignalR();
 
@@ -27,4 +30,5 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.MapHub<MessageHubs>("/messages");
 
+app.UseMvc();
 app.Run();
